@@ -40,11 +40,11 @@ public class MessageListener extends Thread {
             while ((clientSocket = server.accept())!=null){
                 //client socket gets the connection. 
                 //If the connection is null, while loop doesn't run
-                InputStream is = clientSocket.getInputStream(); 
+                InputStream is = clientSocket.getInputStream(); //take data from connection
                 BufferedReader br = new BufferedReader(new InputStreamReader(is));
-                String line = br.readLine();
-                if(line != null)
-                    g.write(line);
+                String s = br.readLine();
+                if(s != null)
+                    g.write(s);
             }
         } catch (IOException ex) {
             Logger.getLogger(MessageListener.class.getName()).log(Level.SEVERE,null,ex);
