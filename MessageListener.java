@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class MessageListener extends Thread {
     ServerSocket server;
-    int port = 8877;
+    int port = 8000;
     WritableGUI g;
     public MessageListener(WritableGUI g,int port){
         this.port = port;
@@ -35,10 +35,12 @@ public class MessageListener extends Thread {
     }
     @Override
     public void run(){
-        Socket clientSocket;
+        Socket clientSocket;//innitialize a socket, a connection to the port.
         try {
             while ((clientSocket = server.accept())!=null){
-                InputStream is = clientSocket.getInputStream();
+                //client socket gets the connection. 
+                //If the connection is null, while loop doesn't run
+                InputStream is = clientSocket.getInputStream(); 
                 BufferedReader br = new BufferedReader(new InputStreamReader(is));
                 String line = br.readLine();
                 if(line != null)
