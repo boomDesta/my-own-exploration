@@ -34,6 +34,6 @@ public class Screen extends javax.swing.JFrame implements WritableGUI {
 
     @Override
     public void write(String s) {
-        chat.append(s + System.lineSeparator());
+        chat.append(s + System.lineSeparator());// string s along with a new line will be on the text area
     }
 }
