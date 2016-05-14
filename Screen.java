@@ -23,13 +23,13 @@ public class Screen extends javax.swing.JFrame implements WritableGUI {
 
     MessageListener listener;
     private void listenButtonActionPerformed(java.awt.event.ActionEvent evt){
-        listener = new MessageListener (this, Integer.parseInt(receiveport.getText()));
-        listener.start();
+        listener = new MessageListener (this, Integer.parseInt(receiveport.getText()));//parse to integer
+        listener.start();// start the thread
     }
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
        MessageTransmitter transmitter = new MessageTransmitter(message.getText(), ipaddress.getText(), Integer.parseInt(targetport.getText()));
        transmitter.start();
-       }//
+       }
 
 
     @Override
